@@ -12,7 +12,8 @@ Employee employee1 = new Employee()
     Name = "John Doe",
     Salary = 20000.00m
 };
-Employee employee2 = new Employee(209, "Jane Smith", 25000.00m);
+
+Developer developer1 = new Developer(271, "Mario", new DateTime(2025, 10, 1));
 
 Console.WriteLine(employee1.GetInfo());
-Console.WriteLine(employee2.GetInfo());
+Console.WriteLine(developer1.GetInfo());
