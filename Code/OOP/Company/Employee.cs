@@ -37,14 +37,18 @@ namespace Oriented_Object_Programming.Company
             this.Name = Name;
             this.Salary = Salary;
         }
-        public string GetInfo()
+        public string GetInfo(int number)
+        {
+            return $"{number} .- Id: {Id}, Name: {Name}, Salary: ${Salary}";
+        }
+        // Overloaded method with a prefix parameter
+        public string GetInfo(string prefix)
+        {
+            return $"{prefix} - Id: {Id}, Name: {Name}, Salary: ${Salary}";
+        }
+        public virtual string GetInfo()
         {
             return $"Id: {Id}, Name: {Name}, Salary: ${Salary}";
         }
-	// Overloaded method with a prefix parameter 
-	public string GetInfo(string prefix) 
-	{
-	    return $"{prefix} - Id: {Id}, Name: {Name}, Salary: ${Salary}";
-	}
     }
 }

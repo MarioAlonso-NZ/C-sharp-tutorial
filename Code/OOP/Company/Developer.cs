@@ -8,5 +8,9 @@
         { 
             this.HireDate = HireDate;
         } // Call base class constructor
+        public override string GetInfo()
+        {
+            return base.GetInfo("Developer") + $", Hire Date: {HireDate.ToShortDateString()}";
+        }
     }
 }
