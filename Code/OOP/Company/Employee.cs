@@ -6,8 +6,9 @@
  */
 namespace Oriented_Object_Programming.Company
 {
-    public class Employee
+    public class Employee : Person
     {
+        private const string EmploymentStatus = "Employed";
         private int _id; // Private field
         public int Id
         {
@@ -22,33 +23,28 @@ namespace Oriented_Object_Programming.Company
                 _id = value; // value is a keyword representing the value being assigned 
             }
         } // Public property
-        public string Name { get; set; } // Add required or string? to avoid null warning
         public decimal Salary { get; set; }
-        public Employee()
-        {
-            Id = 123; // Using the property to leverage validation
-            Name = "Default Name";
-            Salary = 15000.00m;
-        }
+
         // Parameterized constructor with default value for Salary
-        public Employee(int Id, string Name, decimal Salary = 15000.00m)
+        public Employee(int Id, string Name, int Age, decimal Salary = 15000.00m) :
+            base(Name, Age)
         {
             this.Id = Id; // Using the property to leverage validation
-            this.Name = Name;
             this.Salary = Salary;
-        }
-        public string GetInfo(int number)
-        {
-            return $"{number} .- Id: {Id}, Name: {Name}, Salary: ${Salary}";
         }
         // Overloaded method with a prefix parameter
         public string GetInfo(string prefix)
         {
-            return $"{prefix} - Id: {Id}, Name: {Name}, Salary: ${Salary}";
+            return $"{prefix} - Id: {Id}, Salary: ${Salary}";
         }
-        public virtual string GetInfo()
+        public virtual string GetInfo(int number)
         {
-            return $"Id: {Id}, Name: {Name}, Salary: ${Salary}";
+            return $"Id: {Id}, Empolyee number: {number}, Salary: ${Salary}";
+        }
+        // Implementation of abstract method from Person class
+        public override string GetEmploymentStatus()
+        {
+            return EmploymentStatus; // "Employed";
         }
     }
 }
