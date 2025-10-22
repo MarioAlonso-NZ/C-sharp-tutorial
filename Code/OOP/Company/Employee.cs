@@ -6,10 +6,12 @@
  */
 namespace Oriented_Object_Programming.Company
 {
-    public class Employee : Person
+    public class Employee : Person, IHealthInsurance
     {
         private const string EmploymentStatus = "Employed";
         private int _id; // Private field
+        public static int EmployeeCount = 0; // Static field to track number of employees
+
         public int Id
         {
             get { return _id; }
@@ -31,6 +33,7 @@ namespace Oriented_Object_Programming.Company
         {
             this.Id = Id; // Using the property to leverage validation
             this.Salary = Salary;
+            EmployeeCount++; // Increment employee count
         }
         // Overloaded method with a prefix parameter
         public string GetInfo(string prefix)
@@ -45,6 +48,12 @@ namespace Oriented_Object_Programming.Company
         public override string GetEmploymentStatus()
         {
             return EmploymentStatus; // "Employed";
+        }
+
+        // Implementation of IHealthInsurance interface
+        public string GetHealthInsurancePlan()
+        {
+            return "Standard Health Insurance Plan";
         }
     }
 }
